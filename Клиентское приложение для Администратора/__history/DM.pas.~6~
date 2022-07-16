@@ -1,0 +1,32 @@
+unit DM;
+
+interface
+
+uses
+  SysUtils, Classes, DB, ADODB;
+
+type
+  TFDM = class(TDataModule)
+    ADOConnection1: TADOConnection;
+    ADOQueryUsar: TADOQuery;
+    DataSourceUsar: TDataSource;
+    DataSourceGrupp: TDataSource;
+    DataSourceDiscipl: TDataSource;
+    DataSource3: TDataSource;
+    ADOQueryGrupp: TADOQuery;
+    ADOQueryDiscipl: TADOQuery;
+    ADOQuery3: TADOQuery;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FDM: TFDM;
+
+implementation
+
+{$R *.dfm}
+
+end.

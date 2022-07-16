@@ -1,0 +1,94 @@
+unit VUsar;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, Grids, DBGrids, jpeg, StdCtrls, Mask, Buttons, DBCtrls;
+
+type
+  TFVUsar = class(TForm)
+    DBGrid1: TDBGrid;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    GroupBox1: TGroupBox;
+    LabeledEdit1: TLabeledEdit;
+    MaskEdit1: TMaskEdit;
+    Label2: TLabel;
+    Image4: TImage;
+    Image5: TImage;
+    BitBtn1: TBitBtn;
+    Panel1: TPanel;
+    Image3: TImage;
+    Image1: TImage;
+    Image2: TImage;
+    Image6: TImage;
+    Image9: TImage;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    DBLookupComboBox1: TDBLookupComboBox;
+    Label3: TLabel;
+    Label1: TLabel;
+    ComboBox1: TComboBox;
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FVUsar: TFVUsar;
+
+implementation
+
+uses DM, Avtor_Menu;
+
+{$R *.dfm}
+
+
+
+procedure TFVUsar.BitBtn1Click(Sender: TObject);
+begin
+FDM.ADOQueryUsar.Close;
+FDM.ADOStoredProcUsar.Parameters.ParamByName('@FIO').Value:=LabeledEdit1.Text;
+FDM.ADOStoredProcUsar.Parameters.ParamByName('@KodGrupp').Value:=FDM.ADOQueryGrupp.FieldByName('KodGrupp').AsString;
+FDM.ADOStoredProcUsar.Parameters.ParamByName('@Status').Value:=ComboBox1.Text;
+FDM.ADOStoredProcUsar.Parameters.ParamByName('@Password').Value:=MaskEdit1.Text;
+FDM.ADOStoredProcUsar.ExecProc;
+FDM.ADOQueryUsar.Open;
+end;
+
+
+procedure TFVUsar.BitBtn2Click(Sender: TObject);
+begin
+if MessageDlg('Вернуться в Главное меню ?', mtConfirmation,[mbOk, mbCancel], 0) = mrOk then
+begin
+FVUsar.Close;
+end;
+end;
+
+procedure TFVUsar.BitBtn3Click(Sender: TObject);
+begin
+if MessageDlg('Закончить работу программы ?', mtConfirmation,[mbOk, mbCancel], 0) = mrOk then
+begin
+Close;
+Application.Terminate;
+end;
+end;
+
+procedure TFVUsar.FormActivate(Sender: TObject);
+begin
+FDM.ADOQueryUsar.Active:=True;
+FDM.ADOQueryUsar.Open;
+
+FVUsar.DBGrid1.Columns.Items[0].Title.Caption :='Код Студента';
+FVUsar.DBGrid1.Columns.Items[1].Title.Caption :='ФИО';
+FVUsar.DBGrid1.Columns.Items[3].Title.Caption :='Пароль';
+FVUsar.DBGrid1.Columns.Items[4].Title.Caption :='Код Группы';
+end;
+
+end.

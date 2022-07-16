@@ -1,0 +1,15 @@
+program Student;
+
+uses
+  Forms,
+  Menu in 'Menu.pas' {FSNMenu},
+  VvodDoc in 'VvodDoc.pas' {FSNVvodDoc};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFSNMenu, FSNMenu);
+  Application.CreateForm(TFSNVvodDoc, FSNVvodDoc);
+  Application.Run;
+end.

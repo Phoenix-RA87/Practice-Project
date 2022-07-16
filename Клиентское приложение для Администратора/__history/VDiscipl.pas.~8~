@@ -1,0 +1,54 @@
+unit VDiscipl;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, Grids, DBGrids, StdCtrls, Buttons;
+
+type
+  TFDiscipl = class(TForm)
+    Panel1: TPanel;
+    Panel3: TPanel;
+    GroupBox1: TGroupBox;
+    LabeledEdit1: TLabeledEdit;
+    BitBtn3: TBitBtn;
+    DBGrid1: TDBGrid;
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    procedure FormActivate(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FDiscipl: TFDiscipl;
+
+implementation
+
+uses DM, Avtor_Menu;
+
+{$R *.dfm}
+
+procedure TFDiscipl.BitBtn3Click(Sender: TObject);
+begin
+FDM.ADOQueryDiscipl.Close;
+FDM.ADOStoredProcDisc.Parameters.ParamByName('@NazvDiscipl').Value:=LabeledEdit1.Text;
+FDM.ADOStoredProcDisc.ExecProc;
+FDM.ADOQueryDiscipl.Open;
+end;
+
+procedure TFDiscipl.FormActivate(Sender: TObject);
+begin
+FDM.ADOQueryDiscipl.Open;
+end;
+
+end.

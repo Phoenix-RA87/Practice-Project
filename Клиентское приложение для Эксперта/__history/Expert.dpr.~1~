@@ -1,0 +1,13 @@
+program Expert;
+
+uses
+  Forms,
+  Avtorizacia in 'Avtorizacia.pas' {AvtorizExpert};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TAvtorizExpert, AvtorizExpert);
+  Application.Run;
+end.

@@ -1,0 +1,26 @@
+unit Otch;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  TFSNOtch = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FSNOtch: TFSNOtch;
+
+implementation
+
+uses DM, Menu, VvodDoc;
+
+{$R *.dfm}
+
+end.

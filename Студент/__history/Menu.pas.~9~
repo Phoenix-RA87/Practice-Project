@@ -1,0 +1,36 @@
+unit Menu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, DBCtrls, Buttons;
+
+type
+  TFSNMenu = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Image1: TImage;
+    GroupBox1: TGroupBox;
+    Image2: TImage;
+    Label1: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
+    Label2: TLabel;
+    DBLookupComboBox2: TDBLookupComboBox;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FSNMenu: TFSNMenu;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.bdsproj,D:\ПП Свищенков\Админ\Adninistrator.bdsproj=C:\Users\Andrey\Documents\Borland Studio Projects\Project1.bdsproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,D:\ПП Свищенков\Админ\Avtor_Menu.pas=C:\Users\Andrey\Documents\Borland Studio Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,D:\ПП Свищенков\Админ\VvodStud.dfm=D:\ПП Свищенков\Админ\Unit3.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,D:\ПП Свищенков\Админ\VvodGrupp.pas=D:\ПП Свищенков\Админ\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,D:\ПП Свищенков\Админ\DM.dfm=D:\ПП Свищенков\Админ\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,D:\ПП Свищенков\Админ\DM.pas=D:\ПП Свищенков\Админ\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,D:\ПП Свищенков\Админ\VvodExpert.pas=D:\ПП Свищенков\Админ\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,D:\ПП Свищенков\Админ\Avtor_Menu.dfm=C:\Users\Andrey\Documents\Borland Studio Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,D:\ПП Свищенков\Админ\VvodStud.pas=D:\ПП Свищенков\Админ\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,D:\ПП Свищенков\Админ\VvodExpert.dfm=D:\ПП Свищенков\Админ\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,D:\ПП Свищенков\Админ\VvodGrupp.dfm=D:\ПП Свищенков\Админ\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,D:\ПП Свищенков\Админ\VvodDiscipl.pas=D:\ПП Свищенков\Админ\Unit4.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,D:\ПП Свищенков\Админ\VvodDiscipl.dfm=D:\ПП Свищенков\Админ\Unit4.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

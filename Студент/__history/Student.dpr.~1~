@@ -1,0 +1,13 @@
+program Student;
+
+uses
+  Forms,
+  Menu in 'Menu.pas' {FSNMenu};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFSNMenu, FSNMenu);
+  Application.Run;
+end.

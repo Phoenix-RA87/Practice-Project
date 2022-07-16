@@ -1,0 +1,15 @@
+program Expert;
+
+uses
+  Forms,
+  Avtor_Expert in 'Avtor_Expert.pas' {FSNAVTOR_EXPERT},
+  Ocenka in 'Ocenka.pas' {FSNOcenka};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFSNAVTOR_EXPERT, FSNAVTOR_EXPERT);
+  Application.CreateForm(TFSNOcenka, FSNOcenka);
+  Application.Run;
+end.

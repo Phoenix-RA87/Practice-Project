@@ -1,0 +1,103 @@
+unit Otch;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ComCtrls, DBCtrls, ExtCtrls, Grids, DBGrids, jpeg;
+
+type
+  TFSNOtch = class(TForm)
+    DBGrid1: TDBGrid;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    RadioGroup1: TRadioGroup;
+    DBLookupComboBox1: TDBLookupComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBLookupComboBox3: TDBLookupComboBox;
+    DateTimePicker1: TDateTimePicker;
+    BitBtn1: TBitBtn;
+    Image1: TImage;
+    Image2: TImage;
+    procedure DBLookupComboBox1Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure RadioGroup1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FSNOtch: TFSNOtch;
+
+implementation
+
+uses Avtor_Expert, DM, Ocenka;
+
+{$R *.dfm}
+
+
+procedure TFSNOtch.DBLookupComboBox1Click(Sender: TObject);
+begin
+DMSN.ADOQueryUsar.SQL.Text:='select * from Polzovatel where KodGrupp='+DMSN.ADOQueryGruppa.FieldByName('KodGrupp').AsString;
+DMSN.ADOQueryUsar.Open;
+end;
+
+procedure TFSNOtch.FormActivate(Sender: TObject);
+begin
+DMSN.ADOQueryDisciplina.Open;
+DMSN.ADOQueryGruppa.Open;
+DBLookupComboBox1Click(Self);
+end;
+
+procedure TFSNOtch.RadioGroup1Click(Sender: TObject);
+begin
+if RadioGroup1.ItemIndex=0 then
+Begin
+DMSN.ADOQueryOtch.Close;
+DMSN.ADOQueryOtch.SQL.Text:='EXEC SV '+DMSN.ADOQueryUsar.FieldByName('KodUsar').AsString;
+DMSN.ADOQueryOtch.Open;
+
+  DBGrid1.Columns.Items[0].Title.Caption :='Название дисциплины';
+  DBGrid1.Columns.Items[1].Title.Caption :='Название документа';
+  DBGrid1.Columns.Items[2].Title.Caption :='Самооценка';
+  DBGrid1.Columns.Items[3].Title.Caption :='Количество просмотров';
+  DBGrid1.Columns.Items[4].Title.Caption :='Средняя оценка';
+End;
+
+if RadioGroup1.ItemIndex=1 then
+Begin
+DMSN.ADOQueryOtch.Close;
+DMSN.ADOQueryOtch.SQL.Text:='EXEC RabotStudOtch3 '+DMSN.ADOQueryGruppa.FieldByName('KodGrupp').AsString+', '+DMSN.ADOQueryDisciplina.FieldByName('KodDiscipl').AsString;
+DMSN.ADOQueryOtch.Open;
+
+//  DBGrid1.Columns.Items[0].Title.Caption :='ФИО студента';
+//  DBGrid1.Columns.Items[1].Title.Caption :='Код дисциплины';
+//  DBGrid1.Columns.Items[2].Title.Caption :='Код пользователя';
+//  DBGrid1.Columns.Items[3].Title.Caption :='Название документа';
+//  DBGrid1.Columns.Items[4].Title.Caption :='Дата';
+//  DBGrid1.Columns.Items[5].Title.Caption :='Самооценка';
+//  DBGrid1.Columns.Items[6].Title.Caption :='Расширение';
+end;
+
+if RadioGroup1.ItemIndex=2 then
+Begin
+DMSN.ADOQueryOtch.Close;
+DMSN.ADOQueryOtch.SQL.Text:='EXEC Otch5 '+DMSN.ADOQueryGruppa.FieldByName('KodGrupp').AsString;
+DMSN.ADOQueryOtch.Open;
+
+//  DBGrid1.Columns.Items[0].Title.Caption :='Код документа';
+//  DBGrid1.Columns.Items[1].Title.Caption :='Код дисциплины';
+//  DBGrid1.Columns.Items[2].Title.Caption :='Код пользователя';
+//  DBGrid1.Columns.Items[3].Title.Caption :='Название документа';
+//  DBGrid1.Columns.Items[4].Title.Caption :='Дата';
+//  DBGrid1.Columns.Items[5].Title.Caption :='Самооценка';
+//  DBGrid1.Columns.Items[6].Title.Caption :='Расширение';
+end;
+end;
+
+end.

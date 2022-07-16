@@ -1,0 +1,156 @@
+object DMExpert: TDMExpert
+  OldCreateOrder = False
+  Height = 262
+  Width = 633
+  object ADOConnection1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
+      'fo=False;Initial Catalog=PP_Roman_Andrey;Data Source=127.0.0.1'
+    LoginPrompt = False
+    Provider = 'SQLOLEDB.1'
+    Left = 40
+    Top = 16
+  end
+  object ADOStoredProcVvodOcen: TADOStoredProc
+    Connection = ADOConnection1
+    ProcedureName = 'VvodOcen;1'
+    Parameters = <
+      item
+        Name = '@RETURN_VALUE'
+        DataType = ftInteger
+        Direction = pdReturnValue
+        Precision = 10
+        Value = Null
+      end
+      item
+        Name = '@KodDoc'
+        Attributes = [paNullable]
+        DataType = ftInteger
+        Precision = 10
+        Value = Null
+      end
+      item
+        Name = '@Ocenka'
+        Attributes = [paNullable]
+        DataType = ftInteger
+        Precision = 10
+        Value = Null
+      end
+      item
+        Name = '@Data'
+        Attributes = [paNullable]
+        DataType = ftWideString
+        Size = 10
+        Value = Null
+      end
+      item
+        Name = '@Komment'
+        Attributes = [paNullable]
+        DataType = ftString
+        Size = 70
+        Value = Null
+      end
+      item
+        Name = '@KodUsar'
+        Attributes = [paNullable]
+        DataType = ftInteger
+        Precision = 10
+        Value = Null
+      end>
+    Left = 368
+    Top = 152
+  end
+  object ADOQueryGrupp: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from Gruppa')
+    Left = 136
+    Top = 24
+  end
+  object ADOQueryUsar: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from Polzovatel')
+    Left = 240
+    Top = 24
+  end
+  object ADOQueryDiscipl: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from Discipl')
+    Left = 368
+    Top = 24
+  end
+  object ADOQueryOtch: TADOQuery
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select  FIO, NazvDiscipl, NazvDoc, DocFile, SamoOcen, Put '
+      'FROM Doc, Polzovatel, Discipl '
+      
+        'where Doc.KodUsar=Polzovatel.KodUsar and Doc.KodDiscpl=Discipl.K' +
+        'odDisc')
+    Left = 472
+    Top = 24
+  end
+  object DataSourceGrupp: TDataSource
+    DataSet = ADOQueryGrupp
+    Left = 136
+    Top = 80
+  end
+  object DataSourceUsar: TDataSource
+    DataSet = ADOQueryUsar
+    Left = 248
+    Top = 80
+  end
+  object DataSourceDiscipl: TDataSource
+    DataSet = ADOQueryDiscipl
+    Left = 368
+    Top = 88
+  end
+  object DataSourceOtch: TDataSource
+    DataSet = ADOQueryOtch
+    Left = 472
+    Top = 88
+  end
+  object DataSourceOcen: TDataSource
+    DataSet = ADOQueryOcen
+    Left = 240
+    Top = 152
+  end
+  object ADOQueryOcen: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from Ocenki')
+    Left = 128
+    Top = 152
+  end
+  object ADOQueryDoc: TADOQuery
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from Doc')
+    Left = 568
+    Top = 24
+  end
+  object DataSourceDoc: TDataSource
+    DataSet = ADOQueryDoc
+    Left = 568
+    Top = 88
+  end
+end

@@ -1,0 +1,15 @@
+program Expert;
+
+uses
+  Forms,
+  Avtorizacia in 'Avtorizacia.pas' {AvtorizExpert},
+  DM in 'DM.pas' {DMExpert: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TAvtorizExpert, AvtorizExpert);
+  Application.CreateForm(TDMExpert, DMExpert);
+  Application.Run;
+end.

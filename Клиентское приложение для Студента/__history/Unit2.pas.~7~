@@ -1,0 +1,39 @@
+unit Unit2;
+
+interface
+
+uses
+  SysUtils, Classes, ADODB, DB;
+
+type
+  TDM = class(TDataModule)
+    DataSourceVvodDoc: TDataSource;
+    ADOConnection1: TADOConnection;
+    ADOQueryVvodDoc: TADOQuery;
+    ADOStoredProcVvodDoc: TADOStoredProc;
+    ADOQueryGrupp: TADOQuery;
+    ADOQueryStud: TADOQuery;
+    DataSourceGrupp: TDataSource;
+    DataSourceStud: TDataSource;
+    ADOQuery2: TADOQuery;
+    ADOQueryDiscipl: TADOQuery;
+    DataSourceDiscipl: TDataSource;
+    DataSourcePortf: TDataSource;
+    ADOQueryPortf: TADOQuery;
+    ADOStoredProcVPortf: TADOStoredProc;
+    DataSourceZapros1: TDataSource;
+    ADOQueryZapros1: TADOQuery;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DM: TDM;
+
+implementation
+
+{$R *.dfm}
+
+end.

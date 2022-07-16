@@ -1,0 +1,33 @@
+unit Otch;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, Buttons, ComCtrls, DBCtrls;
+
+type
+  TFSNOtch = class(TForm)
+    Panel3: TPanel;
+    Label3: TLabel;
+    Label6: TLabel;
+    DBLookupComboBox4: TDBLookupComboBox;
+    DateTimePicker1: TDateTimePicker;
+    BitBtn4: TBitBtn;
+    RadioGroup1: TRadioGroup;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FSNOtch: TFSNOtch;
+
+implementation
+
+uses DM, Menu, VvodDoc;
+
+{$R *.dfm}
+
+end.

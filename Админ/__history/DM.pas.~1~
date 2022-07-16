@@ -1,0 +1,23 @@
+unit DM;
+
+interface
+
+uses
+  SysUtils, Classes;
+
+type
+  TFDMSN = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FDMSN: TFDMSN;
+
+implementation
+
+{$R *.dfm}
+
+end.

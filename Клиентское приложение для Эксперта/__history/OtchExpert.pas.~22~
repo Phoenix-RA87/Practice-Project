@@ -1,0 +1,80 @@
+unit OtchExpert;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, StdCtrls, Buttons, ComCtrls, DBCtrls, ExtCtrls, jpeg;
+
+type
+  TForm1 = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    RadioGroup1: TRadioGroup;
+    DBLookupComboBox1: TDBLookupComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBLookupComboBox3: TDBLookupComboBox;
+    DateTimePicker1: TDateTimePicker;
+    BitBtn1: TBitBtn;
+    DBGrid1: TDBGrid;
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    procedure RadioGroup1Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure DBLookupComboBox1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+uses DM, Avtorizacia;
+
+{$R *.dfm}
+
+procedure TForm1.DBLookupComboBox1Click(Sender: TObject);
+begin
+DMExpert.ADOQueryUsar.SQL.Text:='select * from Polzovatel where KodGrupp='+DMExpert.ADOQueryGrupp.FieldByName('KodGrupp').AsString;
+DMExpert.ADOQueryUsar.Open;
+end;
+
+procedure TForm1.FormActivate(Sender: TObject);
+begin
+DMExpert.ADOQueryDiscipl.Open;
+DMExpert.ADOQueryGrupp.Open;
+DBLookupComboBox1Click(Self);
+end;
+
+procedure TForm1.RadioGroup1Click(Sender: TObject);
+begin
+if RadioGroup1.ItemIndex=0 then
+Begin
+DMExpert.ADOQueryOtch.Close;
+DMExpert.ADOQueryOtch.SQL.Text:='EXEC SV '+DMExpert.ADOQueryUsar.FieldByName('KodUsar').AsString;
+DMExpert.ADOQueryOtch.Open;
+End;
+if RadioGroup1.ItemIndex=1 then
+Begin
+DMExpert.ADOQueryOtch.Close;
+DMExpert.ADOQueryOtch.SQL.Text:='EXEC OtchSvedOtdDoc '+DMExpert.ADOQueryGrupp.FieldByName('KodGrupp').AsString+', '+DMExpert.ADOQueryDiscipl.FieldByName('KodDiscipl').AsString;
+DMExpert.ADOQueryOtch.Open;
+end;
+if RadioGroup1.ItemIndex=2 then
+Begin
+DMExpert.ADOQueryOtch.Close;
+DMExpert.ADOQueryOtch.SQL.Text:='EXEC SvedRabotStud '+DMExpert.ADOQueryGrupp.FieldByName('KodGrupp').AsString;
+DMExpert.ADOQueryOtch.Open;
+end;
+
+end;
+
+end.

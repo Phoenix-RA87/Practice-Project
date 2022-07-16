@@ -1,0 +1,47 @@
+unit VGrupp;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, Grids, DBGrids, StdCtrls, Buttons, jpeg;
+
+type
+  TFGrupp = class(TForm)
+    Panel1: TPanel;
+    DBGrid1: TDBGrid;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Image1: TImage;
+    GroupBox1: TGroupBox;
+    LabeledEdit1: TLabeledEdit;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FGrupp: TFGrupp;
+
+implementation
+
+uses DM, Avtor_Menu;
+
+{$R *.dfm}
+
+procedure TFGrupp.BitBtn1Click(Sender: TObject);
+begin
+Close();
+end;
+
+procedure TFGrupp.BitBtn2Click(Sender: TObject);
+begin
+FAvtor_Menu.ShowModal();
+end;
+
+end.

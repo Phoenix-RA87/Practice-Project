@@ -1,0 +1,13 @@
+program Administrator;
+
+uses
+  Forms,
+  Avtor_Menu in 'Avtor_Menu.pas' {FAvtor_Menu};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFAvtor_Menu, FAvtor_Menu);
+  Application.Run;
+end.

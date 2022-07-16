@@ -1,0 +1,13 @@
+program Adninistrator;
+
+uses
+  Forms,
+  Avtor_Menu in 'Avtor_Menu.pas' {FSNAvtor_Menu};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFSNAvtor_Menu, FSNAvtor_Menu);
+  Application.Run;
+end.

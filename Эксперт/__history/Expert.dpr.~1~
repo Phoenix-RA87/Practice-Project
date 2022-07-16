@@ -1,0 +1,13 @@
+program Expert;
+
+uses
+  Forms,
+  Avtor_Expert in 'Avtor_Expert.pas' {FSNAVTOR_EXPERT};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFSNAVTOR_EXPERT, FSNAVTOR_EXPERT);
+  Application.Run;
+end.

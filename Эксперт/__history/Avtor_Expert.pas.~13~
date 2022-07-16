@@ -1,0 +1,53 @@
+unit Avtor_Expert;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Mask, DBCtrls, ExtCtrls, jpeg, Buttons;
+
+type
+  TFSNAVTOR_EXPERT = class(TForm)
+    Panel1: TPanel;
+    GroupBox1: TGroupBox;
+    RadioGroup1: TRadioGroup;
+    DBLookupComboBox1: TDBLookupComboBox;
+    Label2: TLabel;
+    Label1: TLabel;
+    MaskEdit1: TMaskEdit;
+    Image1: TImage;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    GroupBox2: TGroupBox;
+    Image2: TImage;
+    BitBtn2: TBitBtn;
+    Image4: TImage;
+    BitBtn1: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FSNAVTOR_EXPERT: TFSNAVTOR_EXPERT;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFSNAVTOR_EXPERT.BitBtn2Click(Sender: TObject);
+begin
+Close();
+end;
+
+procedure TFSNAVTOR_EXPERT.BitBtn3Click(Sender: TObject);
+begin
+Ocenka.ShowModal();
+end;
+
+end.
